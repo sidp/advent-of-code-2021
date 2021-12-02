@@ -35,12 +35,33 @@ pub fn part1(input: &Vec<Movement>) -> i32 {
 
 	for (direction, steps) in input {
 		match direction {
-			Direction::Forward => horizontal += steps,
 			Direction::Up => depth -= steps,
 			Direction::Down => depth += steps,
+			Direction::Forward => horizontal += steps,
 			Direction::None => {},
 		}
 	}
 
 	return horizontal * depth;
 }
+
+pub fn part2(input: &Vec<Movement>) -> i32 {
+	let mut aim = 0;
+	let mut horizontal = 0;
+	let mut depth = 0;
+
+	for (direction, steps) in input {
+		match direction {
+			Direction::Up => aim -= steps,
+			Direction::Down => aim += steps,
+			Direction::Forward => {
+				horizontal += steps;
+				depth += aim * steps;
+			},
+			Direction::None => {},
+		}
+	}
+
+	return horizontal * depth;
+}
+

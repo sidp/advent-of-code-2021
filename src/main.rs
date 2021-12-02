@@ -16,8 +16,10 @@ fn main() {
     let day2_input = common::read("src/day2/input.txt");
     let day2_parsed_input = day2::parse(day2_input);
     let day2_part1 = day2::part1(&day2_parsed_input);
+    let day2_part2 = day2::part2(&day2_parsed_input);
     assert_eq!(day2_part1, 1990000);
-    print_day("2", day2_part1, 0);
+    assert_eq!(day2_part2, 1975421260);
+    print_day("2", day2_part1, day2_part2);
 }
 
 fn print_day(day: &str, part1: i32, part2: i32) {
