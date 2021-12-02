@@ -1,3 +1,14 @@
+pub fn parse(input: Vec<String>) -> Vec<i32> {
+	let mut numbers: Vec<i32> = Vec::new();
+
+	for line in input {
+		let val = line.parse::<i32>().unwrap();
+		numbers.push(val);
+	}
+
+	return numbers;
+}
+
 pub fn part1(values: &Vec<i32>) -> i32 {
 	let mut increased = 0;
 
